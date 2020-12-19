@@ -35,10 +35,67 @@ conn.login(username, password, function(err, userInfo) {
 
 Now use the instructions to make [CRUD](https://jsforce.github.io/document/#crud) or [SOQL Query](https://jsforce.github.io/document/#query) requests.
 
+## Example SOQL Queries
+
+### Get all Contact data
+
+```sql
+SELECT Id, Name, Email, Bio__c, Twitter_URL__c, Facebook_URL__c, Instagram_URL__c, GitHub_URL__c, LinkedIn_URL__c
+FROM Contact
+LIMIT 1
+```
+
+### Get all Websites for a Contact
+
+```sql
+SELECT Id, Name, URL__c
+FROM Website__c
+WHERE Contact__c = '0038A00000XQ2s4QAD'
+```
+
+`0038A00000XQ2s4QAD` is the contact ID returned by the first query.
+
+### Get all Stickers for a Contact
+
+```sql
+SELECT Id, Name, Image_URL__c
+FROM Sticker__c
+WHERE Id IN
+  (SELECT Sticker__c
+   FROM Contact_Sticker_Association__c
+   WHERE Contact__c = '0038A00000XQ2s4QAD')
+```
+
+`0038A00000XQ2s4QAD` is the Contact ID returned by the first query.
+
+### Get Webring for a Sticker
+
+```sql
+SELECT Id, Name, Sticker__r.Name
+FROM Webring__c
+WHERE Sticker = 'a028A000004CxueQAC'
+```
+
+`a028A000004CxueQAC` is a Sticker ID returned by the previous query
+
+### Get all Websites for a Webring
+
+```sql
+SELECT Id, Name, URL__c
+FROM Website__c
+WHERE Id IN
+  (SELECT Website__c
+   FROM Website_Webring_Association__c
+   WHERE Webring__c = 'a048A000002yeJDQAY')
+```
+
+`a048A000002yeJDQAY` is Webring ID returned by the previous query
+
 ## TODO
 
 - [ ] Figure out how to export sample data as a plan so that it can be imported
 - [ ] Create app in Salesforce app launcher
+- [ ] Determine user flow for deploying Heroku app + Salesforce app and then trading card setup experience.
 - [ ] Configure Salesforce UI for Weirdos-specific use cases e.g. fillinig out tradnig card contact info, creating a website and associating it with your tradinig card, adding stickers to trading card, creatinig a webring, adding websites to a webring.
 
 ## General Information About Salesforce DX Projects
