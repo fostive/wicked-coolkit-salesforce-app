@@ -60,6 +60,9 @@
         <layout>Contact-Contact %28Marketing%29 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Contact_Sticker_Association__c-Contact Sticker Association Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Sticker__c-Sticker Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
