@@ -71,9 +71,9 @@ WHERE Id IN
 ### Get Webring for a Sticker
 
 ```sql
-SELECT Id, Name, Sticker__r.Name
+SELECT Id, Name, Description__c
 FROM Webring__c
-WHERE Sticker = 'a028A000004CxueQAC'
+WHERE Sticker__c = 'a028A000004CxueQAC'
 ```
 
 `a028A000004CxueQAC` is a Sticker ID returned by the previous query
