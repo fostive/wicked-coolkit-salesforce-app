@@ -7,7 +7,7 @@
 1. `sfdx force:auth:web:login --setalias=WeirdosDevHub --setdefaultdevhubusername` to authenticate with a Dev Hub Salesforce org I've already created. It will open a browser window asking you to login. You should have received an email with credentials for this.
 1. `sfdx force:org:create -f config/project-scratch-def.json --setalias weirdosscratch --durationdays 30 --setdefaultusername` to create an empty scratch org. This will be your "local" (and easily disposable) dev environment.
 1. `sfdx force:source:push` to deploy the code in this directory to the scratch org you just created.
-1. ~~`sfdx force:data:tree:import --plan ./data/data-plan.json` to add some sample data to the scratch org.~~ I can't figure out how to export the sample data in a format that can be imported. In the meantime, you'll have to generate some sample data manually (you should only have to do this once). Run `sfdx force:org:open`, click the "9 dot" icon in the top left, click "Sales". Now you should be able to click the "Contact" tab drop-down and then click "New Contact". Fill in first name, last name, bio, and maybe one social network URL. Click Save. Now click the "Related" tab for that contact record you just created. Scroll down and you should see a "New" button in the Websites pane. Click that to add a website and associate it with that contact. You can do the same in the Stickers pane, but first you'll have to add sticker records using the Sticker tab at the very top.
+1. ~~`sfdx force:data:tree:import --plan ./data/data-plan.json` to add some sample data to the scratch org.~~ I can't figure out how to export the sample data in a format that can be imported. In the meantime, you'll have to generate some sample data manually (you should only have to do this once). Run `sfdx force:org:open`, click the "9 dot" icon in the top left, click "Sales". Now you should be able to click the "Contact" tab drop-down and then click "New Contact". Fill in first name, last name, bio, and maybe one social network username. Click Save. Now click the "Related" tab for that contact record you just created. Scroll down and you should see a "New" button in the Websites pane. Click that to add a website and associate it with that contact. You can do the same in the Stickers pane, but first you'll have to add sticker records using the Sticker tab at the very top.
 1. `sfdx force:user:password:generate` to generate a password to use with jsforce as described below. Use the username and password it outputs with the code below.
 
 ## Use Local Dev Setup
@@ -40,7 +40,7 @@ Now use the instructions to make [CRUD](https://jsforce.github.io/document/#crud
 ### Get all Contact data
 
 ```sql
-SELECT Id, Name, Email, Bio__c, Twitter_URL__c, Facebook_URL__c, Instagram_URL__c, GitHub_URL__c, LinkedIn_URL__c
+SELECT Id, Name, Email, Bio__c, Twitter_Username__c, Facebook_Username__c, Instagram_Username__c, GitHub_Username__c, LinkedIn_Username__c, CodePen_Username__c
 FROM Contact
 LIMIT 1
 ```

@@ -8,22 +8,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contact.CodePen_URL__c</field>
+        <field>Contact.CodePen_Username__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contact.Facebook_URL__c</field>
+        <field>Contact.Facebook_Username__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contact.GitHub_URL__c</field>
+        <field>Contact.GitHub_Username__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contact.Instagram_URL__c</field>
+        <field>Contact.Instagram_Username__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -38,12 +38,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contact.LinkedIn_URL__c</field>
+        <field>Contact.LinkedIn_Username__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contact.Twitter_URL__c</field>
+        <field>Contact.Twitter_Username__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
