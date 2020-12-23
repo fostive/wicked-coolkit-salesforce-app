@@ -65,6 +65,10 @@
                 <behavior>Edit</behavior>
                 <field>Bio__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CodePen_URL__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
