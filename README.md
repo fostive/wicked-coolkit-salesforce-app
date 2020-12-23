@@ -93,15 +93,15 @@ WHERE Id IN
 
 ## TODO
 
-- [ ] Figure out how to export sample data as a plan so that it can be imported
-- [ ] Create app in Salesforce app launcher
+- [ ] Create app in Salesforce app launcher Determine user flow for deploying Heroku app + Salesforce app and then trading card setup experience. https://github.com/crcastle/weirdos-salesforce-app/issues/6
 - [ ] Determine user flow for deploying Heroku app + Salesforce app and then trading card setup experience.
-- [ ] Implement Sticker webring next and previous URLs as a public API endpoint following this patterrn https://developer.salesforce.com/blogs/developer-relations/2012/02/quick-tip-public-restful-web-services-on-force-com-sites.html
-- [ ] Configure Salesforce UI for Weirdos-specific use cases e.g. filling out trading card contact info, creating a website and associating it with your trading card, adding stickers to trading card, creating a webring, adding websites to a webring.
-= [ ] Add abiility to upload image to Contact (for trading card)
-- [ ] Feats of Strength
-    - What is difference between Feats of Strength and Stickers
-    - Possible to use dynamic multi picklist instead of text field?
+  - [ ] Configure Salesforce UI for Weirdos-specific use cases e.g. filling out trading card contact info, creating a website and associating it with your trading card, adding stickers to trading card, creating a webring, adding websites to a webring. 
+- [ ] Implement Sticker webring next and previous URLs as a public API endpoint following this patterrn https://developer.salesforce.com/blogs/developer-relations/2012/02/quick-tip-public-restful-web-services-on-force-com-sites.html https://github.com/crcastle/weirdos-salesforce-app/issues/8
+- [ ] Add ability to upload image to Contact (for trading card) https://github.com/crcastle/weirdos-salesforce-app/issues/5
+- [ ] Feats of Strength https://github.com/crcastle/weirdos-salesforce-app/issues/7
+  - What is difference between Feats of Strength and Stickers
+  - Possible to use dynamic multi picklist instead of text field?
+- [ ] Figure out how to export sample data as a plan so that it can be imported
 
 ## General Information About Salesforce DX Projects
 
