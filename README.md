@@ -40,7 +40,7 @@ Now use the instructions to make [CRUD](https://jsforce.github.io/document/#crud
 ### Get all Contact data
 
 ```sql
-SELECT Id, Name, Email, Bio__c, Feats_of_Strength__c, Main_Website__c, Twitter_Username__c, Facebook_Username__c, Instagram_Username__c, GitHub_Username__c, LinkedIn_Username__c, CodePen_Username__c
+SELECT Id, Name, Email, Bio__c, Photo_URL__c, Feats_of_Strength__c, Main_Website__c, Twitter_Username__c, Facebook_Username__c, Instagram_Username__c, GitHub_Username__c, LinkedIn_Username__c, CodePen_Username__c
 FROM Contact
 LIMIT 1
 ```
