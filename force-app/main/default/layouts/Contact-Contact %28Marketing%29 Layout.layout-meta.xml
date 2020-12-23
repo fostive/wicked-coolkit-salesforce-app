@@ -65,6 +65,10 @@
                 <behavior>Edit</behavior>
                 <field>CodePen_Username__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Feats_of_Strength__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

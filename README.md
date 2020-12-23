@@ -40,7 +40,7 @@ Now use the instructions to make [CRUD](https://jsforce.github.io/document/#crud
 ### Get all Contact data
 
 ```sql
-SELECT Id, Name, Email, Bio__c, Twitter_Username__c, Facebook_Username__c, Instagram_Username__c, GitHub_Username__c, LinkedIn_Username__c, CodePen_Username__c
+SELECT Id, Name, Email, Bio__c, Feats_of_Strength__c, Twitter_Username__c, Facebook_Username__c, Instagram_Username__c, GitHub_Username__c, LinkedIn_Username__c, CodePen_Username__c
 FROM Contact
 LIMIT 1
 ```
@@ -98,6 +98,10 @@ WHERE Id IN
 - [ ] Determine user flow for deploying Heroku app + Salesforce app and then trading card setup experience.
 - [ ] Implement Sticker webring next and previous URLs as a public API endpoint following this patterrn https://developer.salesforce.com/blogs/developer-relations/2012/02/quick-tip-public-restful-web-services-on-force-com-sites.html
 - [ ] Configure Salesforce UI for Weirdos-specific use cases e.g. filling out trading card contact info, creating a website and associating it with your trading card, adding stickers to trading card, creating a webring, adding websites to a webring.
+= [ ] Add abiility to upload image to Contact (for trading card)
+- [ ] Feats of Strength
+    - What is difference between Feats of Strength and Stickers
+    - Possible to use dynamic multi picklist instead of text field?
 
 ## General Information About Salesforce DX Projects
 
