@@ -57,9 +57,9 @@ conn.request('/services/data/v50.0/sobjects/ContentDocument/0698A00000131ZvQAI/L
 
 `0698A00000131ZvQAI` is the Picture Content Version ID returned by the previous query. This returns bytes for the image which can then be shown on a webpage with `<img src="data:image/jpeg,deadbeef">`. `deadbeef` is the bytes for the image returned above.
 
-Note: The image file type--e.g. `jpeg` in the img tag above--will need to be replaced with the correct file type.
+**Note**: The image file type--e.g. `jpeg` in the img tag above--will need to be replaced with the correct file type.
 
-Note2: It wasn't clear if the image bytes returned from Salesforce are base64 encoded or not. If they are, the img tag will need to be `<img src="data:image/jpeg;base64,deadbeef">`.
+**Note2**: It wasn't clear to me if the image bytes returned from Salesforce are base64 encoded or not. If they are, the img tag will need to be `<img src="data:image/jpeg;base64,deadbeef">`.
 
 ### Get all Websites for a Contact
 
@@ -113,11 +113,11 @@ WHERE Id IN
 - [ ] Determine user flow for deploying Heroku app + Salesforce app and then trading card setup experience.
   - [ ] Configure Salesforce UI for Weirdos-specific use cases e.g. filling out trading card contact info, creating a website and associating it with your trading card, adding stickers to trading card, creating a webring, adding websites to a webring. 
 - [ ] Implement Sticker webring next and previous URLs as a public API endpoint following this patterrn https://developer.salesforce.com/blogs/developer-relations/2012/02/quick-tip-public-restful-web-services-on-force-com-sites.html https://github.com/crcastle/weirdos-salesforce-app/issues/8
-- [ ] Add ability to upload image to Contact (for trading card) https://github.com/crcastle/weirdos-salesforce-app/issues/5
 - [ ] Feats of Strength https://github.com/crcastle/weirdos-salesforce-app/issues/7
   - What is difference between Feats of Strength and Stickers
   - Possible to use dynamic multi picklist instead of text field?
 - [ ] Figure out how to export sample data as a plan so that it can be imported
+- [x] Add ability to upload image to Contact (for trading card) https://github.com/crcastle/weirdos-salesforce-app/issues/5
 
 ## General Information About Salesforce DX Projects
 
