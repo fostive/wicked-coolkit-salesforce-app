@@ -75,7 +75,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Photo_URL__c</field>
+                <field>Picture_Path__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Picture__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Picture_Content_Version_ID__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

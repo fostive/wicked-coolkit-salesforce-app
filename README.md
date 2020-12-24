@@ -40,10 +40,26 @@ Now use the instructions to make [CRUD](https://jsforce.github.io/document/#crud
 ### Get all Contact data
 
 ```sql
-SELECT Id, Name, Email, Bio__c, Photo_URL__c, Feats_of_Strength__c, Main_Website__c, Twitter_Username__c, Facebook_Username__c, Instagram_Username__c, GitHub_Username__c, LinkedIn_Username__c, CodePen_Username__c
+SELECT Id, Name, Email, Bio__c, Picture_Content_Version_ID__c, Feats_of_Strength__c, Main_Website__c, Twitter_Username__c, Facebook_Username__c, Instagram_Username__c, GitHub_Username__c, LinkedIn_Username__c, CodePen_Username__c
 FROM Contact
 LIMIT 1
 ```
+
+### Get picture for a Contact
+
+```javascript
+// Get metadata for image, such as FileType which the <img> tag needs to display the image
+conn.request('/services/data/v50.0/sobjects/ContentDocument/0698A00000131ZvQAI/LatestPublishedVersion')
+
+// Get bytes for image
+conn.request('/services/data/v50.0/sobjects/ContentDocument/0698A00000131ZvQAI/LatestPublishedVersion/VersionData)
+```
+
+`0698A00000131ZvQAI` is the Picture Content Version ID returned by the previous query. This returns bytes for the image which can then be shown on a webpage with `<img src="data:image/jpeg,deadbeef">`. `deadbeef` is the bytes for the image returned above.
+
+Note: The image file type--e.g. `jpeg` in the img tag above--will need to be replaced with the correct file type.
+
+Note2: It wasn't clear if the image bytes returned from Salesforce are base64 encoded or not. If they are, the img tag will need to be `<img src="data:image/jpeg;base64,deadbeef">`.
 
 ### Get all Websites for a Contact
 
