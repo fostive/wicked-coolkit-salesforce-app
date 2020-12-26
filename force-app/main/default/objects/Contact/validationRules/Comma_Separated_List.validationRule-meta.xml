@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Comma_Separated_List</fullName>
+    <active>true</active>
+    <description>Feat of Strength field must be a comma-separates list of alphanumeric values.</description>
+    <errorConditionFormula>AND(
+  NOT(REGEX(Feats_of_Strength__c, &quot;^[a-zA-Z0-9,\\s]*$&quot;)),
+  NOT(ISBLANK(Feats_of_Strength__c))
+)</errorConditionFormula>
+    <errorDisplayField>Feats_of_Strength__c</errorDisplayField>
+    <errorMessage>Must be a comma-separates list of alphanumeric values.</errorMessage>
+</ValidationRule>
