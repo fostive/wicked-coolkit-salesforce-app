@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#009EDB</headerColor>
+        <logo>WickedCoolkitlogo</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Some cool tools to celebrate your unique place in this weird web world.</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Wicked CoolKit</label>
+    <navType>Standard</navType>
+    <tabs>standard-Contact</tabs>
+    <tabs>Sticker__c</tabs>
+    <tabs>Webring__c</tabs>
+    <tabs>Website__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Wicked_CoolKit_UtilityBar</utilityBar>
+</CustomApplication>
