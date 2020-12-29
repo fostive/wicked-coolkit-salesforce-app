@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AppMenu xmlns="http://soap.sforce.com/2006/04/metadata">
     <appMenuItems>
-        <name>Wicked_CoolKit</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
         <name>standard__Platform</name>
         <type>CustomApplication</type>
     </appMenuItems>
@@ -66,6 +62,10 @@
     </appMenuItems>
     <appMenuItems>
         <name>standard__SalesforceCMS</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Wicked_CoolKit</name>
         <type>CustomApplication</type>
     </appMenuItems>
 </AppMenu>
