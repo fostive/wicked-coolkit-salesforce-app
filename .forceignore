@@ -4,6 +4,9 @@
 
 package.xml
 
+# Problematic Members
+**AppBrand**
+
 # LWC configuration files
 **/jsconfig.json
 **/.eslintrc.json
