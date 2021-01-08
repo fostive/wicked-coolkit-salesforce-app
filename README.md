@@ -61,15 +61,22 @@ conn.request('/services/data/v50.0/sobjects/ContentDocument/0698A00000131ZvQAI/L
 
 **Note2**: It wasn't clear to me if the image bytes returned from Salesforce are base64 encoded or not. If they are, the img tag will need to be `<img src="data:image/jpeg;base64,deadbeef">`.
 
-### Get all Websites for a Contact
+### Get Main Website for a Contact
+
+```sql
+SELECT Main_Website__r.Id, Main_Website__r.Name, Main_Website__r.URL__c
+FROM Contact
+WHERE Id = '0038A00000XQ2s4QAD'
+```
+
+`0038A00000XQ2s4QAD` is the contact ID returned by the first query.
+
+### Get all Websites
 
 ```sql
 SELECT Id, Name, URL__c
 FROM Website__c
-WHERE Contact__c = '0038A00000XQ2s4QAD'
 ```
-
-`0038A00000XQ2s4QAD` is the contact ID returned by the first query.
 
 ### Get all Stickers for a Contact
 
@@ -80,6 +87,16 @@ WHERE Id IN
   (SELECT Sticker__c
    FROM Contact_Sticker_Association__c
    WHERE Contact__c = '0038A00000XQ2s4QAD')
+```
+
+`0038A00000XQ2s4QAD` is the Contact ID returned by the first query.
+
+### Get Webring for a Contact
+
+```sql
+SELECT Webring__r.Id, Webring__r.Name, Webring__r.Description__c, Webring__r.Sticker__c
+FROM Contact
+WHERE Id = '0038A00000XQ2s4QAD'
 ```
 
 `0038A00000XQ2s4QAD` is the Contact ID returned by the first query.
