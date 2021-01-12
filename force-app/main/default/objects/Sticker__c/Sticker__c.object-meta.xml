@@ -159,7 +159,9 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Stickers</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Image_Alt_Text__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

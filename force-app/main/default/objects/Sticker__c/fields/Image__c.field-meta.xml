@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Image__c</fullName>
+    <externalId>false</externalId>
+    <formula>IMAGE(&quot;https://unpkg.com/wicked-coolkit/dist/stickers/png/&quot; &amp; Name &amp; &quot;.png&quot;, Image_Alt_Text__c,100, 100)</formula>
+    <label>Image</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

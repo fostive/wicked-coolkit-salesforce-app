@@ -14,6 +14,10 @@
                 <behavior>Required</behavior>
                 <field>Image_Alt_Text__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Image__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
