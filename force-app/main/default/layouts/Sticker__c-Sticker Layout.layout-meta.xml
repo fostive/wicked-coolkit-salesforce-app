@@ -12,7 +12,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Image_URL__c</field>
+                <field>Image_Alt_Text__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -54,6 +54,10 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Webring__c.Sticker__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Contact_Sticker_Association__c.Sticker__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
