@@ -52,7 +52,7 @@ LIMIT 1
 conn.request('/services/data/v50.0/sobjects/ContentVersion/0698A00000131ZvQAI')
 
 // Get bytes for image
-conn.request('/services/data/v50.0/sobjects/ContentDocument/0698A00000131ZvQAI/VersionData')
+conn.request('/services/data/v50.0/sobjects/ContentVersion/0698A00000131ZvQAI/VersionData')
 ```
 
 `0698A00000131ZvQAI` is the Picture Content Version ID returned by the previous query. This returns bytes for the image which can then be shown on a webpage with `<img src="data:image/jpeg,deadbeef">`. `deadbeef` is the bytes for the image returned above.
