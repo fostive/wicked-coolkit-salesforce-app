@@ -15,13 +15,15 @@
 Now you can use the [jsforce](https://jsforce.github.io) library to do CRUD operations (among other things) against the sample data. You'll need to do something like ths to get a `conn` object which you can then use to make [CRUD](https://jsforce.github.io/document/#crud) or [SOQL Query](https://jsforce.github.io/document/#query) requests.
 
 ```javascript
-var jsforce = require('jsforce');
+var jsforce = require("jsforce");
 var conn = new jsforce.Connection({
   // you can change loginUrl to connect to sandbox or prerelease env.
-  loginUrl : 'https://test.salesforce.com'
+  loginUrl: "https://test.salesforce.com"
 });
-conn.login(username, password, function(err, userInfo) {
-  if (err) { return console.error(err); }
+conn.login(username, password, function (err, userInfo) {
+  if (err) {
+    return console.error(err);
+  }
   // Now you can get the access token and instance URL information.
   // Save them to establish connection next time.
   console.log(conn.accessToken);
@@ -111,7 +113,7 @@ WHERE Id IN
 
 - [ ] Create app in Salesforce app launcher Determine user flow for deploying Heroku app + Salesforce app and then trading card setup experience. https://github.com/crcastle/weirdos-salesforce-app/issues/6
 - [ ] Determine user flow for deploying Heroku app + Salesforce app and then trading card setup experience.
-  - [ ] Configure Salesforce UI for Weirdos-specific use cases e.g. filling out trading card contact info, creating a website and associating it with your trading card, adding stickers to trading card, creating a webring, adding websites to a webring. 
+  - [ ] Configure Salesforce UI for Weirdos-specific use cases e.g. filling out trading card contact info, creating a website and associating it with your trading card, adding stickers to trading card, creating a webring, adding websites to a webring.
 - [ ] Implement Sticker webring next and previous URLs as a public API endpoint following this patterrn https://developer.salesforce.com/blogs/developer-relations/2012/02/quick-tip-public-restful-web-services-on-force-com-sites.html https://github.com/crcastle/weirdos-salesforce-app/issues/8
 - [ ] Feats of Strength https://github.com/crcastle/weirdos-salesforce-app/issues/7
   - What is difference between Feats of Strength and Stickers
