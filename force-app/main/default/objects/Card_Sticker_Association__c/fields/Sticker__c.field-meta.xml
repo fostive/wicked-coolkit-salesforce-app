@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sticker__c</fullName>
+    <externalId>false</externalId>
+    <label>Sticker</label>
+    <referenceTo>Sticker__c</referenceTo>
+    <relationshipLabel>Card Sticker Associations</relationshipLabel>
+    <relationshipName>Card_Sticker_Associations</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <LightningExperienceTheme xmlns="http://soap.sforce.com/2006/04/metadata">
     <defaultBrandingSet>LEXTHEMINGWickedCoolKit</defaultBrandingSet>
-    <description>Some cool tools to celebrate your unique place in this weird web world.</description>
+    <description
+  >Some cool tools to celebrate your unique place in this weird web world.</description>
     <masterLabel>Wicked CoolKit</masterLabel>
     <shouldOverrideLoadingImage>false</shouldOverrideLoadingImage>
 </LightningExperienceTheme>
