@@ -1,6 +1,6 @@
 public class AttachmentController {
   @AuraEnabled
-  public static void updatePicturePath(String recordId) {
+  public static void updatePicturePath(Id recordId) {
     //In lighting, the attachments are stored in content documents
     ContentDocumentLink docLink = [
       SELECT ContentDocumentId
@@ -23,7 +23,7 @@ public class AttachmentController {
   }
 
   @AuraEnabled
-  public static string getPicturePath(String recordId) {
+  public static string getPicturePath(Id recordId) {
     //In lighting, the attachments are stored in content documents
     ContentDocumentLink docLink = [
       SELECT ContentDocumentId
