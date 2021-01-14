@@ -59,10 +59,6 @@
         <fields>NAME</fields>
         <relatedList>Webring__c.Sticker__c</relatedList>
     </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Contact_Sticker_Association__c.Sticker__c</relatedList>
-    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

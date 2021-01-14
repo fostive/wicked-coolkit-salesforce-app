@@ -14,7 +14,7 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>BRAND_IMAGE</propertyName>
-        <propertyValue>/file-asset/WickedCoolkitlogo1?v=1</propertyValue>
+        <propertyValue>/file-asset/X600x120?v=1</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>BANNER_IMAGE</propertyName>
@@ -38,7 +38,7 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>LINK_AS_BACKGROUND</propertyName>
-        <propertyValue>false</propertyValue>
+        <propertyValue>true</propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>OVERRIDE_LOADING_PAGE</propertyName>

@@ -76,18 +76,13 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Webring__c.Description__c</field>
+        <field>Sticker__c.Image__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Webring__c.Sticker__c</field>
+        <field>Webring__c.Description__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Website__c.Card__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
         <layout

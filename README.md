@@ -7,7 +7,6 @@
 1. `sfdx force:auth:web:login --setalias=WeirdosDevHub --setdefaultdevhubusername` to authenticate with a Dev Hub Salesforce org I've already created. It will open a browser window asking you to login. You should have received an email with credentials for this.
 1. `sfdx force:org:create -f config/project-scratch-def.json --setalias weirdosscratch --durationdays 30 --setdefaultusername` to create an empty scratch org. This will be your "local" (and easily disposable) dev environment.
 1. `sfdx force:source:push` to deploy the code in this directory to the scratch org you just created.
-1. ~~`sfdx force:data:tree:import --plan ./data/data-plan.json` to add some sample data to the scratch org.~~ I can't figure out how to export the sample data in a format that can be imported. In the meantime, you'll have to generate some sample data manually (you should only have to do this once). Run `sfdx force:org:open`, click the "9 dot" icon in the top left, click "Sales". Now you should be able to click the "Contact" tab drop-down and then click "New Contact". Fill in first name, last name, bio, and maybe one social network username. Click Save. Now click the "Related" tab for that contact record you just created. Scroll down and you should see a "New" button in the Websites pane. Click that to add a website and associate it with that contact. You can do the same in the Stickers pane, but first you'll have to add sticker records using the Sticker tab at the very top.
 1. `sfdx force:user:password:generate` to generate a password to use with jsforce as described below. Use the username and password it outputs with the code below.
 
 ## Use Local Dev Setup
@@ -39,22 +38,24 @@ Now use the instructions to make [CRUD](https://jsforce.github.io/document/#crud
 
 ## Example SOQL Queries
 
-### Get all Contact data
+### Get all Card data
 
 ```sql
-SELECT Id, Name, Email, Bio__c, Picture_Content_Version_ID__c, Feats_of_Strength__c, Main_Website__c, Twitter_Username__c, Facebook_Username__c, Instagram_Username__c, GitHub_Username__c, LinkedIn_Username__c, CodePen_Username__c
-FROM Contact
+SELECT Id, Name, Email__c, Bio__c, Picture_Content_Version_ID__c, Feats_of_Strength__c, Main_Website__c, Twitter_Username__c, Instagram_Username__c, GitHub_Username__c, LinkedIn_Username__c, CodePen_Username__c
+FROM Card__c
 LIMIT 1
 ```
 
-### Get picture for a Contact
+### Get picture for a Card
 
 ```javascript
 // Get metadata for image, such as FileType which the <img> tag needs to display the image
-conn.request('/services/data/v50.0/sobjects/ContentVersion/0698A00000131ZvQAI')
+conn.request("/services/data/v50.0/sobjects/ContentVersion/0698A00000131ZvQAI");
 
 // Get bytes for image
-conn.request('/services/data/v50.0/sobjects/ContentVersion/0698A00000131ZvQAI/VersionData')
+conn.request(
+  "/services/data/v50.0/sobjects/ContentVersion/0698A00000131ZvQAI/VersionData"
+);
 ```
 
 `0698A00000131ZvQAI` is the Picture Content Version ID returned by the previous query. This returns bytes for the image which can then be shown on a webpage with `<img src="data:image/jpeg,deadbeef">`. `deadbeef` is the bytes for the image returned above.
@@ -63,16 +64,6 @@ conn.request('/services/data/v50.0/sobjects/ContentVersion/0698A00000131ZvQAI/Ve
 
 **Note2**: It wasn't clear to me if the image bytes returned from Salesforce are base64 encoded or not. If they are, the img tag will need to be `<img src="data:image/jpeg;base64,deadbeef">`.
 
-### Get Main Website for a Contact
-
-```sql
-SELECT Main_Website__r.Id, Main_Website__r.Name, Main_Website__r.URL__c
-FROM Contact
-WHERE Id = '0038A00000XQ2s4QAD'
-```
-
-`0038A00000XQ2s4QAD` is the contact ID returned by the first query.
-
 ### Get all Websites
 
 ```sql
@@ -80,38 +71,26 @@ SELECT Id, Name, URL__c
 FROM Website__c
 ```
 
-### Get all Stickers for a Contact
+### Get all Stickers for a Card
 
 ```sql
 SELECT Id, Name, Image_Alt_Text__c
 FROM Sticker__c
 WHERE Id IN
   (SELECT Sticker__c
-   FROM Contact_Sticker_Association__c
-   WHERE Contact__c = '0038A00000XQ2s4QAD')
+   FROM Card_Sticker_Association__c
+   WHERE Card__c = '0038A00000XQ2s4QAD')
 ```
 
-`0038A00000XQ2s4QAD` is the Contact ID returned by the first query.
+`0038A00000XQ2s4QAD` is the Card ID returned by the first query.
 
-### Get Webring for a Contact
-
-```sql
-SELECT Webring__r.Id, Webring__r.Name, Webring__r.Description__c, Webring__r.Sticker__c
-FROM Contact
-WHERE Id = '0038A00000XQ2s4QAD'
-```
-
-`0038A00000XQ2s4QAD` is the Contact ID returned by the first query.
-
-### Get Webring for a Sticker
+### Get a Webring
 
 ```sql
 SELECT Id, Name, Description__c
 FROM Webring__c
-WHERE Sticker__c = 'a028A000004CxueQAC'
+LIMIT 1
 ```
-
-`a028A000004CxueQAC` is a Sticker ID returned by the previous query
 
 ### Get all Websites for a Webring
 
@@ -130,13 +109,18 @@ WHERE Id IN
 
 - [x] Create app in Salesforce app launcher Determine user flow for deploying Heroku app + Salesforce app and then trading card setup experience. https://github.com/crcastle/weirdos-salesforce-app/issues/6
 - [ ] Determine user flow for deploying Heroku app + Salesforce app and then trading card setup experience.
-  - [ ] Configure Salesforce UI for Weirdos-specific use cases e.g. filling out trading card contact info, creating a website and associating it with your trading card, adding stickers to trading card, creating a webring, adding websites to a webring.
-- [ ] Implement Sticker webring next and previous URLs as a public API endpoint following this patterrn https://developer.salesforce.com/blogs/developer-relations/2012/02/quick-tip-public-restful-web-services-on-force-com-sites.html https://github.com/crcastle/weirdos-salesforce-app/issues/8
+- [ ] Configure Salesforce UI for Weirdos-specific use cases e.g.
+  - [x] filling out trading card contact info
+  - [ ] adding stickers to trading card
+  - [ ] creating a webring
+  - [ ] adding websites to a webring.
 - [x] Feats of Strength https://github.com/crcastle/weirdos-salesforce-app/issues/7
   - What is difference between Feats of Strength and Stickers
   - Possible to use dynamic multi picklist instead of text field?
 - [x] Figure out how to export sample data as a plan so that it can be imported
 - [x] Add ability to upload image to Contact (for trading card) https://github.com/crcastle/weirdos-salesforce-app/issues/5
+- [ ] Create the Salesforce Sticker Webring manager main application
+- [ ] Update Import Data Instructions
 
 ## General Information About Salesforce DX Projects
 
