@@ -1,8 +1,10 @@
-import { LightningElement, api, wire } from "lwc";
+import { LightningElement, api, wire, track } from "lwc";
 import { getRecord, getFieldValue } from "lightning/uiRecordApi";
 import { subscribe, MessageContext } from "lightning/messageService";
 import getPicturePath from "@salesforce/apex/AttachmentController.getPicturePath";
+import getStickersByCard from "@salesforce/apex/HomeController.getStickersByCard";
 import PICTURE_UPDATED_CHANNEL from "@salesforce/messageChannel/Picture_Updated__c";
+import STICKER_UPDATED_CHANNEL from "@salesforce/messageChannel/Sticker_Updated__c";
 
 import * as host from "./host";
 
@@ -47,6 +49,7 @@ export const FORM_FIELDS = [
   STRENGTHS_FIELD
 ];
 
+export { host };
 export default class TradingCard extends LightningElement {
   @api recordId;
 
@@ -65,9 +68,13 @@ export default class TradingCard extends LightningElement {
   instagram;
   codepen;
 
+  @track
+  stickers = [];
+
   error = null;
   loading = true;
-  subscription = {};
+  pictureSubscription = {};
+  stickerSubscription = {};
 
   @wire(getRecord, { recordId: "$recordId", fields: FIELDS })
   card({ error, data }) {
@@ -132,16 +139,6 @@ export default class TradingCard extends LightningElement {
     }
   }
 
-  _stickers = [];
-  get stickers() {
-    return this._stickers.map((sticker) => ({
-      id: sticker.id,
-      href: `${host.api(this.host)}/sticker/?id=${sticker.id}`,
-      imgSrc: host.sticker(sticker.path),
-      imgAlt: sticker.alt
-    }));
-  }
-
   get hasLinks() {
     return (
       [
@@ -159,10 +156,15 @@ export default class TradingCard extends LightningElement {
     this.error = null;
     this.loading = false;
     this.subscribeToMessageChannel();
+    getStickersByCard({ cardId: this.recordId })
+      .then((data) => this.mapStickers(data))
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   subscribeToMessageChannel() {
-    this.subscription = subscribe(
+    this.pictureSubscription = subscribe(
       this.messageContext,
       PICTURE_UPDATED_CHANNEL,
       (message) => {
@@ -176,5 +178,26 @@ export default class TradingCard extends LightningElement {
           });
       }
     );
+
+    this.stickerSubscription = subscribe(
+      this.messageContext,
+      STICKER_UPDATED_CHANNEL,
+      (message) => {
+        const { recordId } = message;
+        getStickersByCard({ cardId: recordId })
+          .then((data) => this.mapStickers(data))
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    );
+  }
+
+  mapStickers(data) {
+    this.stickers = data.map((sticker) => ({
+      id: sticker.Sticker__r.Id,
+      imgSrc: host.sticker(sticker.Sticker__r.Name),
+      imgAlt: sticker.Sticker__r.Image_Alt_Text__c
+    }));
   }
 }

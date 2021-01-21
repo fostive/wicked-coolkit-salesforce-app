@@ -160,7 +160,8 @@
     </nameField>
     <pluralLabel>Stickers</pluralLabel>
     <searchLayouts>
-        <searchResultsAdditionalFields>Image_Alt_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields
+    >Image_Alt_Text__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

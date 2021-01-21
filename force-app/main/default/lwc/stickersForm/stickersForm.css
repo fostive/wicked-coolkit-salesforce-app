@@ -1,0 +1,10 @@
+.stickers-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.sticker-cell {
+  flex: 0 0 20%;
+  margin-bottom: 5px;
+  padding: 5px;
+}
