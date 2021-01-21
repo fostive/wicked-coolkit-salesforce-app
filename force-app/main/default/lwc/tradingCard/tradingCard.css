@@ -149,21 +149,19 @@ img {
 
 .trading-card {
   width: 100%;
+  margin: auto;
   display: grid;
   grid-gap: 1.6em;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  font-size: 100%;
+  font-family: "Courier New", Courier, serif;
+  font-weight: bold;
+  color: #1e1e60;
 }
-
-/*@media screen and (min-width: 750px) {
-    .trading-card {
-        max-width: 800px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-}*/
 
 .trading-card .front,
 .trading-card .back {
+  width: 100%;
   max-width: 380px;
   min-height: 500px;
   padding: 0.7em;
@@ -178,6 +176,7 @@ img {
   background-image: linear-gradient(45deg, #79589f, #009edb);
   display: flex;
   flex-direction: column;
+  justify-self: end;
 }
 
 /* Intro section
@@ -342,6 +341,8 @@ img {
   justify-content: space-around;
   align-content: space-around;
   flex-wrap: wrap;
+  justify-self: start;
+  background-color: #f6f0e2;
 }
 
 .sticker {

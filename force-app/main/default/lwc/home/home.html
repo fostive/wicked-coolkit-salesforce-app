@@ -15,6 +15,7 @@
           <c-file-uploader record-id={recordId}></c-file-uploader>
         </template>
       </lightning-card>
+      <c-stickers-form if:false={isNew} record-id={recordId}></c-stickers-form>
     </lightning-layout-item>
     <lightning-layout-item padding="around-small" size="3">
       <lightning-card title="Preview">
