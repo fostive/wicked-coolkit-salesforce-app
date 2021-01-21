@@ -45,7 +45,7 @@ export default class StickersForm extends LightningElement {
     return getStickersByCard({ cardId: this.recordId }).then((data) => {
       data.forEach((sticker) => {
         this.stickers.forEach((s) => {
-          if (sticker.Sticker__c === s.id) {
+          if (sticker.Id === s.id) {
             s.selected = true;
           }
         });

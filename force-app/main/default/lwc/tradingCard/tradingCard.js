@@ -195,9 +195,9 @@ export default class TradingCard extends LightningElement {
 
   mapStickers(data) {
     this.stickers = data.map((sticker) => ({
-      id: sticker.Sticker__r.Id,
-      imgSrc: host.sticker(sticker.Sticker__r.Name),
-      imgAlt: sticker.Sticker__r.Image_Alt_Text__c
+      id: sticker.Id,
+      imgSrc: host.sticker(sticker.Name),
+      imgAlt: sticker.Image_Alt_Text__c
     }));
   }
 }

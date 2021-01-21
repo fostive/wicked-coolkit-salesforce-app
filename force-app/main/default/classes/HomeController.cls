@@ -14,15 +14,16 @@ public with sharing class HomeController {
   }
 
   @AuraEnabled
-  public static List<Card_Sticker_Association__c> getStickersByCard(Id cardId) {
+  public static List<Sticker__c> getStickersByCard(Id cardId) {
     return [
-      SELECT
-        Card_Sticker_Association__c.Sticker__r.Id,
-        Card_Sticker_Association__c.Sticker__r.Name,
-        Card_Sticker_Association__c.Sticker__r.Image_Alt_Text__c,
-        Card_Sticker_Association__c.Sticker__r.Image__c
-      FROM Card_Sticker_Association__c
-      WHERE Card_Sticker_Association__c.Card__r.Id = :cardId
+      SELECT Id, Name, Image_Alt_Text__c
+      FROM Sticker__c
+      WHERE
+        Id IN (
+          SELECT Sticker__c
+          FROM Card_Sticker_Association__c
+          WHERE Card__c = :cardId
+        )
       WITH SECURITY_ENFORCED
     ];
   }
