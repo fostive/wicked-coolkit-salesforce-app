@@ -18,7 +18,7 @@ export default class StickersForm extends LightningElement {
   @track
   stickers = [];
 
-  MAX_STICKERS = 9;
+  MAX_STICKERS = 12;
 
   get maxStickers() {
     return this.MAX_STICKERS;
