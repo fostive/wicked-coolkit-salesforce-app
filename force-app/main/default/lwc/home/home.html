@@ -1,31 +1,37 @@
 <template>
   <lightning-layout>
-    <lightning-layout-item padding="around-small" size="9">
+    <lightning-layout-item padding="around-small" size="8">
       <lightning-card title="Profile Information">
-        <lightning-record-form
-          record-id={recordId}
-          object-api-name="Card__c"
-          mode={mode}
-          fields={fields}
-          columns="2"
-          onsuccess={handleSuccess}
-        >
-        </lightning-record-form>
-        <template if:false={isNew}>
-          <c-file-uploader record-id={recordId}></c-file-uploader>
-        </template>
+        <div class="container-inner">
+          <lightning-record-form
+            record-id={recordId}
+            object-api-name="Card__c"
+            mode={mode}
+            fields={fields}
+            columns="2"
+            onsuccess={handleSuccess}
+          >
+          </lightning-record-form>
+        </div>
       </lightning-card>
+      <div class="container-outer">
+        <lightning-card title="Avatar">
+          <template if:false={isNew}>
+            <c-file-uploader record-id={recordId}></c-file-uploader>
+          </template>
+        </lightning-card>
+      </div>
       <c-stickers-form if:false={isNew} record-id={recordId}></c-stickers-form>
     </lightning-layout-item>
-    <lightning-layout-item padding="around-small" size="3">
+    <lightning-layout-item padding="around-small" size="4">
       <lightning-card title="Preview">
         <template if:false={isNew}>
           <c-trading-card record-id={recordId}></c-trading-card>
         </template>
         <template if:true={isNew}>
-          <p>
+          <p class="home-instructions">
             Please, fill out your profile information to see the Trading Card
-            preview here
+            preview here.
           </p>
         </template>
       </lightning-card>

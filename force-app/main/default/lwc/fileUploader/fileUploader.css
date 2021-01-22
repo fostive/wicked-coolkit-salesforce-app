@@ -1,3 +1,15 @@
+.container-inner {
+  margin: .75rem 0;
+  padding-left: var(--lwc-varSpacingVerticalSmall,0.75rem);
+  padding-right: var(--lwc-varSpacingVerticalSmall,0.75rem);
+  display: flex;
+}
+
 .picture {
-  max-width: 200px;
+  max-width: 150px;
+  display: block;
+}
+
+.picture[src] {
+  margin-right: 1em;
 }

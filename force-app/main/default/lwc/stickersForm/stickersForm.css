@@ -1,10 +1,24 @@
+.container-outer {
+  margin-top: 2em;
+}
+
+h3 span {
+  display: inline-block;
+  margin-right: .75rem;
+}
+
 .stickers-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  padding: var(--lwc-varSpacingVerticalSmall,0.75rem);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: .75rem;
 }
 .sticker-cell {
-  flex: 0 0 20%;
-  margin-bottom: 5px;
-  padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.sticker-cell input:disabled + label {
+  opacity: .5;
 }
