@@ -5,8 +5,8 @@
     <label>Webring</label>
     <referenceTo>Webring__c</referenceTo>
     <relationshipLabel>Websites</relationshipLabel>
-    <relationshipName>Website_Webring_Associations</relationshipName>
-    <relationshipOrder>1</relationshipOrder>
+    <relationshipName>Websites</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
     <reparentableMasterDetail>false</reparentableMasterDetail>
     <trackTrending>false</trackTrending>
     <type>MasterDetail</type>

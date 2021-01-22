@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>decorate</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>richTextValue</name>
+                    <value
+          >&lt;p&gt;&lt;b style=&quot;font-size: 20px;&quot;&gt;Some instructions&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque varius bibendum efficitur. Cras et eros vel purus finibus pretium vitae quis turpis. Cras eleifend pharetra varius. Maecenas posuere rutrum elit nec varius.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p class=&quot;ql-indent-1&quot;&gt;&lt;span style=&quot;font-family: courier; color: rgb(0, 0, 0);&quot;&gt;&amp;lt;script type=&quot;module&quot; async src=&quot;https://unpkg.com/wicked-coolkit/dist/webring.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p class=&quot;ql-indent-1&quot;&gt;&lt;span style=&quot;font-family: courier; color: rgb(0, 0, 0);&quot;&gt;&amp;lt;wck-webring host=&quot;crc-tradingcard.herokuapp.com&quot;&amp;gt;&amp;lt;/wck-webring&amp;gt;&lt;/span&gt;&lt;/p&gt;</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:richText</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentName>webringHome</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>main</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Webring</masterLabel>
+    <template>
+        <name>flexipage:defaultAppHomeTemplate</name>
+    </template>
+    <type>AppPage</type>
+</FlexiPage>

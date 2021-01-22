@@ -1,0 +1,21 @@
+<template>
+  <lightning-card title="Websites in your webring">
+    <template if:true={websiteData}>
+      <div style="height: 300px">
+        <lightning-datatable
+          key-field="id"
+          data={websiteData}
+          show-row-number-column
+          hide-checkbox-column
+          onsave={handleUpdate}
+          draft-values={draftValues}
+          columns={columns}
+        >
+        </lightning-datatable>
+      </div>
+    </template>
+    <template if:false={websiteData}>
+      <p>Create a Website to add it to this Webring.</p>
+    </template>
+  </lightning-card>
+</template>

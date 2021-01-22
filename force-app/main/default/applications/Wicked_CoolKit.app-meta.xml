@@ -17,6 +17,7 @@
     <tabs>Sticker__c</tabs>
     <tabs>Website__c</tabs>
     <tabs>Webring__c</tabs>
+    <tabs>Webring</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Wicked_CoolKit_UtilityBar</utilityBar>
 </CustomApplication>
