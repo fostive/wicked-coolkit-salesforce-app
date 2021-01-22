@@ -1,10 +1,10 @@
 import { LightningElement, api, track, wire } from "lwc";
 import { publish, MessageContext } from "lightning/messageService";
 import STICKER_UPDATED_CHANNEL from "@salesforce/messageChannel/Sticker_Updated__c";
-import addSticker from "@salesforce/apex/HomeController.addSticker";
-import deleteSticker from "@salesforce/apex/HomeController.deleteSticker";
-import getStickers from "@salesforce/apex/HomeController.getStickers";
-import getStickersByCard from "@salesforce/apex/HomeController.getStickersByCard";
+import addSticker from "@salesforce/apex/StickerController.addSticker";
+import deleteSticker from "@salesforce/apex/StickerController.deleteSticker";
+import getStickers from "@salesforce/apex/StickerController.getStickers";
+import getStickersByCard from "@salesforce/apex/StickerController.getStickersByCard";
 
 import { host } from "c/tradingCard";
 
