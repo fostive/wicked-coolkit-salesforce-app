@@ -16,15 +16,19 @@ const columns = [
 export default class WebringList extends LightningElement {
   @api webringId;
   columns = columns;
-  websiteData;
+  websiteList;
 
   @wire(getWebsitesByWebring, { webringId: "$webringId" })
-  website({ data, error }) {
-    if (data) {
-      this.websiteData = data;
-    } else if (error) {
-      console.log("Error getting Websites:", error);
+  websites({ data, error }) {
+    if (error) {
+      console.log("Error getting list of Websites in Webring:", error);
+    } else if (data) {
+      this.websiteList = data;
     }
+  }
+
+  get emptyWebsiteList() {
+    return !this.websiteList || this.websiteList.length === 0;
   }
 
   handleUpdate(event) {
