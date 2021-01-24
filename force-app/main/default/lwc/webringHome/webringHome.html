@@ -16,17 +16,19 @@
     </template>
     <template if:true={oneWebring}>
       <lightning-layout-item size="9" class="slds-m-right_small">
+        <lightning-combobox
+          name="webringSelection"
+          label="Select webring"
+          value={webringId}
+          placeholder="Select webring"
+          options={webringList}
+          onchange={handleWebringChange}
+        ></lightning-combobox>
+        <hr />
         <c-webring-list webring-id={webringId}></c-webring-list>
       </lightning-layout-item>
       <lightning-layout-item size="3">
         <c-create-website webring-id={webringId}></c-create-website>
-      </lightning-layout-item>
-    </template>
-    <template if:true={multipleWebrings}>
-      <lightning-layout-item size="12">
-        <lightning-card>
-          <p>Multiple webrings created!</p>
-        </lightning-card>
       </lightning-layout-item>
     </template>
   </lightning-layout>
