@@ -1,34 +1,42 @@
 <template>
-  <lightning-layout>
-    <template if:true={zeroWebrings}>
-      <lightning-layout-item size="12">
-        <lightning-card>
-          <p>Create a webring to get started</p>
-          <lightning-record-form
-            object-api-name={webringObject}
-            mode={mode}
-            fields={webringFields}
-            onsuccess={handleCreateSuccess}
-          >
-          </lightning-record-form>
-        </lightning-card>
-      </lightning-layout-item>
-    </template>
-    <template if:true={oneWebring}>
-      <lightning-layout-item size="9" padding="horizontal-small">
-        <lightning-combobox
-          name="webringSelection"
-          value={webringId}
-          placeholder="Select webring"
-          options={webringList}
-          onchange={handleWebringChange}
-        ></lightning-combobox>
-        <hr />
-        <c-webring-list webring-id={webringId}></c-webring-list>
-      </lightning-layout-item>
-      <lightning-layout-item size="3" padding="horizontal-small">
-        <c-create-website webring-id={webringId}></c-create-website>
-      </lightning-layout-item>
-    </template>
-  </lightning-layout>
+  <template if:true={loading}>
+    <lightning-spinner
+      alternative-text="Loading"
+      variant="inverse"
+    ></lightning-spinner>
+  </template>
+  <template if:false={loading}>
+    <lightning-layout>
+      <template if:true={zeroWebrings}>
+        <lightning-layout-item size="12">
+          <lightning-card>
+            <p>Create a webring to get started</p>
+            <lightning-record-form
+              object-api-name={webringObject}
+              mode={mode}
+              fields={webringFields}
+              onsuccess={handleCreateSuccess}
+            >
+            </lightning-record-form>
+          </lightning-card>
+        </lightning-layout-item>
+      </template>
+      <template if:true={oneWebring}>
+        <lightning-layout-item size="9" padding="horizontal-small">
+          <lightning-combobox
+            name="webringSelection"
+            value={webringId}
+            placeholder="Select webring"
+            options={webringList}
+            onchange={handleWebringChange}
+          ></lightning-combobox>
+          <hr />
+          <c-webring-list webring-id={webringId}></c-webring-list>
+        </lightning-layout-item>
+        <lightning-layout-item size="3" padding="horizontal-small">
+          <c-create-website webring-id={webringId}></c-create-website>
+        </lightning-layout-item>
+      </template>
+    </lightning-layout>
+  </template>
 </template>

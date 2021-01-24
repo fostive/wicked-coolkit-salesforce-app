@@ -8,6 +8,7 @@ import WEBRING_NAME_FIELD from "@salesforce/schema/Webring__c.Name";
 import WEBRING_DESCRIPTION_FIELD from "@salesforce/schema/Webring__c.Description__c";
 
 export default class WebringHome extends LightningElement {
+  loading = true;
   webringId;
   webringList;
   webringObject = WEBRING_OBJECT;
@@ -45,6 +46,10 @@ export default class WebringHome extends LightningElement {
     );
 
     refreshApex(this.webringsResponse);
+  }
+
+  connectedCallback() {
+    this.loading = false;
   }
 
   get zeroWebrings() {
