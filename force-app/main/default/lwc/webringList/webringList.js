@@ -13,8 +13,11 @@ import WEBSITE_ID_FIELD from "@salesforce/schema/Website__c.Id";
 import WEBSITE_URL_FIELD from "@salesforce/schema/Website__c.URL__c";
 import WEBSITE_NAME_FIELD from "@salesforce/schema/Website__c.Name";
 import WEBSITE_ADDED from "@salesforce/messageChannel/Website_Added__c";
+<<<<<<< HEAD
 
 const actions = [{ label: "Delete", name: "delete" }];
+=======
+>>>>>>> 75623a8... When adding new website 1) auto-populate webring field 2) refresh website list
 
 const columns = [
   { label: "URL", fieldName: "URL__c", editable: true, type: "url" },
@@ -28,7 +31,10 @@ export default class WebringList extends LightningElement {
   websiteList;
   subscription;
   websitesByWebringResponse;
+<<<<<<< HEAD
   draftValues = [];
+=======
+>>>>>>> 75623a8... When adding new website 1) auto-populate webring field 2) refresh website list
 
   @wire(getWebsitesByWebring, { webringId: "$webringId" })
   websites(response) {
