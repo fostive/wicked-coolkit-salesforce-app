@@ -1,5 +1,6 @@
 import { LightningElement, wire } from "lwc";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
+import { refreshApex } from "@salesforce/apex";
 
 import getWebrings from "@salesforce/apex/WebringController.getWebrings";
 import WEBRING_OBJECT from "@salesforce/schema/Webring__c";
@@ -43,7 +44,7 @@ export default class WebringHome extends LightningElement {
     });
     this.dispatchEvent(toastEvt);
 
-    // TODO: refresh UI so that it shows empty list of websites in webring
+    refreshApex(this.webringsResponse);
   }
 
   get zeroWebrings() {
