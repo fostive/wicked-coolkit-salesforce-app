@@ -15,10 +15,9 @@
       </lightning-layout-item>
     </template>
     <template if:true={oneWebring}>
-      <lightning-layout-item size="9" class="slds-m-right_small">
+      <lightning-layout-item size="9" padding="horizontal-small">
         <lightning-combobox
           name="webringSelection"
-          label="Select webring"
           value={webringId}
           placeholder="Select webring"
           options={webringList}
@@ -27,7 +26,7 @@
         <hr />
         <c-webring-list webring-id={webringId}></c-webring-list>
       </lightning-layout-item>
-      <lightning-layout-item size="3">
+      <lightning-layout-item size="3" padding="horizontal-small">
         <c-create-website webring-id={webringId}></c-create-website>
       </lightning-layout-item>
     </template>
