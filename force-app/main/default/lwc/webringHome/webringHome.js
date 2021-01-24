@@ -37,12 +37,12 @@ export default class WebringHome extends LightningElement {
   }
 
   handleCreateSuccess() {
-    const toastEvt = new ShowToastEvent({
-      title: "Webring created",
-      message: "Your webring has been created",
-      variant: "success"
-    });
-    this.dispatchEvent(toastEvt);
+    this.dispatchEvent(
+      new ShowToastEvent({
+        title: "Webring created",
+        variant: "success"
+      })
+    );
 
     refreshApex(this.webringsResponse);
   }
