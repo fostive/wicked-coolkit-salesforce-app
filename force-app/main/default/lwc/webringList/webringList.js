@@ -1,6 +1,6 @@
 import { LightningElement, wire, api } from "lwc";
 import getWebsitesByWebring from "@salesforce/apex/WebsiteController.getWebsitesByWebring";
-import { updateRecord } from "lightning/uiRecordApi";
+import { updateRecord, deleteRecord } from "lightning/uiRecordApi";
 import { refreshApex } from "@salesforce/apex";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 import {
@@ -14,9 +14,12 @@ import WEBSITE_URL_FIELD from "@salesforce/schema/Website__c.URL__c";
 import WEBSITE_NAME_FIELD from "@salesforce/schema/Website__c.Name";
 import WEBSITE_ADDED from "@salesforce/messageChannel/Website_Added__c";
 
+const actions = [{ label: "Delete", name: "delete" }];
+
 const columns = [
-  { label: "URL", fieldName: "URL__c", editable: true },
-  { label: "Name", fieldName: "Name", editable: true }
+  { label: "URL", fieldName: "URL__c", editable: true, type: "url" },
+  { label: "Name", fieldName: "Name", editable: true },
+  { type: "action", typeAttributes: { rowActions: actions } }
 ];
 
 export default class WebringList extends LightningElement {
@@ -69,8 +72,8 @@ export default class WebringList extends LightningElement {
   handleUpdate(event) {
     const fields = {};
     fields[WEBSITE_ID_FIELD.fieldApiName] = event.detail.draftValues[0].Id;
-    fields[WEBSITE_URL_FIELD.fieldApiName] = event.detail.draftValues[0].URL;
-    fields[WEBSITE_NAME_FIELD.fieldApiName] = event.detail.draftValues[0].name;
+    fields[WEBSITE_URL_FIELD.fieldApiName] = event.detail.draftValues[0].URL__c;
+    fields[WEBSITE_NAME_FIELD.fieldApiName] = event.detail.draftValues[0].Name;
 
     const recordInput = { fields };
 
@@ -84,7 +87,7 @@ export default class WebringList extends LightningElement {
           })
         );
         // Display fresh data in the datatable
-        return refreshApex(this.website).then(() => {
+        return refreshApex(this.websitesByWebringResponse).then(() => {
           // Clear all draft values in the datatable
           this.draftValues = [];
         });
@@ -98,5 +101,38 @@ export default class WebringList extends LightningElement {
           })
         );
       });
+  }
+
+  handleRowAction(event) {
+    const action = event.detail.action;
+    const recordId = event.detail.row.Id;
+
+    switch (action.name) {
+      case "delete":
+        deleteRecord(recordId)
+          .then(() => {
+            refreshApex(this.websitesByWebringResponse);
+            this.dispatchEvent(
+              new ShowToastEvent({
+                title: "Success",
+                message: "Website deleted",
+                variant: "success"
+              })
+            );
+          })
+          .catch((error) => {
+            console.error(error);
+            this.dispatchEvent(
+              new ShowToastEvent({
+                title: "Error deleting website",
+                message: error.body.message,
+                variant: "error"
+              })
+            );
+          });
+        break;
+      default:
+        break;
+    }
   }
 }
