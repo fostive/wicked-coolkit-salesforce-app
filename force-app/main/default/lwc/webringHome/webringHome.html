@@ -23,14 +23,6 @@
       </template>
       <template if:true={oneWebring}>
         <lightning-layout-item size="9" padding="horizontal-small">
-          <lightning-combobox
-            name="webringSelection"
-            value={webringId}
-            placeholder="Select webring"
-            options={webringList}
-            onchange={handleWebringChange}
-          ></lightning-combobox>
-          <hr />
           <c-webring-list webring-id={webringId}></c-webring-list>
         </lightning-layout-item>
         <lightning-layout-item size="3" padding="horizontal-small">

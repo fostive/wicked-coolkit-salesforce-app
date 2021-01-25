@@ -23,8 +23,7 @@ export default class CreateWebsite extends LightningElement {
   handleSuccess() {
     // Show notification
     const toastEvt = new ShowToastEvent({
-      title: "Website created",
-      message: "Your website has been created and added to webring",
+      title: "Website added",
       variant: "success"
     });
     this.dispatchEvent(toastEvt);
