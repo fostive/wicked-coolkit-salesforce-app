@@ -13,7 +13,6 @@ const embedCode = `<script type="module" async src="https://unpkg.com/wicked-coo
 export default class WebringHome extends LightningElement {
   loading = true;
   webringId;
-  webringList;
   webringObject = WEBRING_OBJECT;
   webringFields = [WEBRING_NAME_FIELD, WEBRING_DESCRIPTION_FIELD];
   mode = "edit";
@@ -29,16 +28,7 @@ export default class WebringHome extends LightningElement {
       console.log("Error getting list of Webring(s):", error);
     } else if (data && data[0]) {
       this.webringId = data[0].Id;
-
-      this.webringList = data.map((webring) => ({
-        value: webring.Id,
-        label: webring.Name
-      }));
     }
-  }
-
-  handleWebringChange(event) {
-    this.webringId = event.detail.value;
   }
 
   handleCreateSuccess() {

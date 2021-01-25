@@ -20,7 +20,6 @@ export default class CreateWebsite extends LightningElement {
 
   fields = [NAME_FIELD, URL_FIELD, WEBRING_FIELD];
 
-  @api webringId;
   subscription;
   disabled = false;
 
