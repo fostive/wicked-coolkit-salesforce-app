@@ -98,10 +98,6 @@
         <layout>Webring__c-Webring Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >Website_Webring_Association__c-Website Webring Association Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Website__c-Website Layout</layout>
     </layoutAssignments>
     <loginIpRanges>
@@ -143,15 +139,6 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Webring__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>Website_Webring_Association__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -547,10 +534,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageEmailClientConfig</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ManageEntitlements</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
