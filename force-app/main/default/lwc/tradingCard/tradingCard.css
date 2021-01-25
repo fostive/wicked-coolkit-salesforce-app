@@ -395,8 +395,3 @@ WITHIN THE CONTEXT OF THE DASHBOARD
 .trading-card {
   padding: var(--lwc-varSpacingVerticalSmall, 0.75rem);
 }
-
-.trading-card .front,
-.trading-card .back {
-  justify-self: center;
-}
