@@ -1,0 +1,8 @@
+h3.title {
+  margin-top: var(--lwc-varSpacingVerticalSmall, 0.75rem);
+}
+
+.container-inner {
+  padding-left: var(--lwc-varSpacingVerticalSmall, 0.75rem);
+  padding-right: var(--lwc-varSpacingVerticalSmall, 0.75rem);
+}

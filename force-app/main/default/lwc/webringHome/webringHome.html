@@ -10,14 +10,16 @@
       <template if:true={zeroWebrings}>
         <lightning-layout-item size="12">
           <lightning-card>
-            <p>Create a webring to get started</p>
-            <lightning-record-form
-              object-api-name={webringObject}
-              mode={mode}
-              fields={webringFields}
-              onsuccess={handleCreateSuccess}
-            >
-            </lightning-record-form>
+            <h3 slot="title" class="title">Create a webring to get started</h3>
+            <div class="container-inner">
+              <lightning-record-form
+                object-api-name={webringObject}
+                mode={mode}
+                fields={webringFields}
+                onsuccess={handleCreateSuccess}
+              >
+              </lightning-record-form>
+            </div>
           </lightning-card>
         </lightning-layout-item>
       </template>
