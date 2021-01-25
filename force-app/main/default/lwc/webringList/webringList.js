@@ -115,8 +115,7 @@ export default class WebringList extends LightningElement {
             refreshApex(this.websitesByWebringResponse);
             this.dispatchEvent(
               new ShowToastEvent({
-                title: "Success",
-                message: "Website deleted",
+                title: "Website deleted",
                 variant: "success"
               })
             );
