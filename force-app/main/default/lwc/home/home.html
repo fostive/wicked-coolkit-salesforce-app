@@ -14,13 +14,13 @@
           </lightning-record-form>
         </div>
       </lightning-card>
-      <div class="container-outer">
-        <lightning-card title="Avatar">
-          <template if:false={isNew}>
+      <template if:false={isNew}>
+        <div class="container-outer">
+          <lightning-card title="Avatar">
             <c-file-uploader record-id={recordId}></c-file-uploader>
-          </template>
-        </lightning-card>
-      </div>
+          </lightning-card>
+        </div>
+      </template>
       <c-stickers-form if:false={isNew} record-id={recordId}></c-stickers-form>
     </lightning-layout-item>
     <lightning-layout-item padding="around-small" size="4">
