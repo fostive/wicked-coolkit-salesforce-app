@@ -28,6 +28,7 @@ export default class WebringList extends LightningElement {
   websiteList;
   subscription;
   websitesByWebringResponse;
+  draftValues = [];
 
   @wire(getWebsitesByWebring, { webringId: "$webringId" })
   websites(response) {
