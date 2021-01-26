@@ -12,7 +12,6 @@ import WEBSITE_ADDED from "@salesforce/messageChannel/Website_Added__c";
  * Creates Website records.
  */
 export default class CreateWebsite extends LightningElement {
-  @api webringId;
   websiteObject = WEBSITE_OBJECT;
   nameField = NAME_FIELD;
   urlField = URL_FIELD;
@@ -20,6 +19,7 @@ export default class CreateWebsite extends LightningElement {
 
   fields = [NAME_FIELD, URL_FIELD, WEBRING_FIELD];
 
+  @api webringId;
   subscription;
   disabled = false;
 
