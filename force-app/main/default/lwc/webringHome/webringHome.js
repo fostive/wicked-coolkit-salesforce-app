@@ -7,6 +7,9 @@ import WEBRING_OBJECT from "@salesforce/schema/Webring__c";
 import WEBRING_NAME_FIELD from "@salesforce/schema/Webring__c.Name";
 import WEBRING_DESCRIPTION_FIELD from "@salesforce/schema/Webring__c.Description__c";
 
+const embedCode = `<script type="module" async src="https://unpkg.com/wicked-coolkit/dist/webring.js"></script>
+<wck-webring host="lukeswickedcoolkit.herokuapp.com"></wck-webring>`;
+
 export default class WebringHome extends LightningElement {
   loading = true;
   webringId;
@@ -14,6 +17,7 @@ export default class WebringHome extends LightningElement {
   webringFields = [WEBRING_NAME_FIELD, WEBRING_DESCRIPTION_FIELD];
   mode = "edit";
   webringsResponse;
+  embedCode = embedCode;
 
   @wire(getWebrings)
   webrings(response) {
