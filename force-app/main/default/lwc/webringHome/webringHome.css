@@ -2,7 +2,19 @@ h3.title {
   margin-top: var(--lwc-varSpacingVerticalSmall, 0.75rem);
 }
 
-.container-inner {
+.container-inner-sm {
   padding-left: var(--lwc-varSpacingVerticalSmall, 0.75rem);
   padding-right: var(--lwc-varSpacingVerticalSmall, 0.75rem);
+}
+
+.container-inner-md {
+  padding-left: var(--lwc-varSpacingVerticalMedium, 1rem);
+  padding-right: var(--lwc-varSpacingVerticalMedium, 1rem);
+}
+
+pre {
+  padding: .75rem;
+  border-radius: 3px;
+  background-color: #323029;
+  color: #f6f0e2;
 }
