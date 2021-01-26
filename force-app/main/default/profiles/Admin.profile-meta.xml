@@ -13,6 +13,18 @@
         <apexClass>HomeController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>StickerController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WebringController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WebsiteController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>false</custom>
     <fieldPermissions>
         <editable>true</editable>
@@ -98,10 +110,6 @@
         <layout>Webring__c-Webring Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >Website_Webring_Association__c-Website Webring Association Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Website__c-Website Layout</layout>
     </layoutAssignments>
     <loginIpRanges>
@@ -151,15 +159,6 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Website_Webring_Association__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
         <object>Website__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -173,6 +172,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Trading_Card</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Webring</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -547,10 +550,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageEmailClientConfig</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ManageEntitlements</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

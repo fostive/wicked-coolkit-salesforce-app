@@ -13,6 +13,14 @@
         <apexClass>HomeController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>WebringController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WebsiteController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
         <editable>true</editable>
@@ -98,10 +106,6 @@
         <layout>Webring__c-Webring Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout
-    >Website_Webring_Association__c-Website Webring Association Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Website__c-Website Layout</layout>
     </layoutAssignments>
     <tabVisibilities>
@@ -114,6 +118,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Trading_Card</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Webring</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>

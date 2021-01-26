@@ -1,0 +1,10 @@
+.container-inner {
+  padding-left: var(--lwc-varSpacingVerticalSmall, 0.75rem);
+  padding-right: var(--lwc-varSpacingVerticalSmall, 0.75rem);
+}
+
+.center {
+  padding-bottom: var(--lwc-varSpacingVerticalSmall, 0.75rem);
+  display: flex;
+  justify-content: center;
+}

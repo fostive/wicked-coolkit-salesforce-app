@@ -1,0 +1,22 @@
+<template>
+  <lightning-card title="Websites in your webring">
+    <template if:false={emptyWebsiteList}>
+      <lightning-datatable
+        key-field="Id"
+        data={websiteList}
+        show-row-number-column
+        hide-checkbox-column
+        onsave={handleUpdate}
+        draft-values={draftValues}
+        columns={columns}
+        onrowaction={handleRowAction}
+      >
+      </lightning-datatable>
+    </template>
+    <template if:true={emptyWebsiteList}>
+      <div class="container-inner">
+        <p>Add a website using the form on the right.</p>
+      </div>
+    </template>
+  </lightning-card>
+</template>
