@@ -3,12 +3,21 @@
     <div class="container-inner">
       <lightning-record-edit-form
         object-api-name={websiteObject}
+        onsubmit={onSubmit}
         onsuccess={handleSuccess}
+        onerror={onError}
       >
-        <lightning-input-field field-name="URL__c"></lightning-input-field>
-        <lightning-input-field field-name="Name"></lightning-input-field>
+        <lightning-messages> </lightning-messages>
         <lightning-input-field
-          field-name="Webring__c"
+          field-name={urlField}
+          disabled={disabled}
+        ></lightning-input-field>
+        <lightning-input-field
+          field-name={nameField}
+          disabled={disabled}
+        ></lightning-input-field>
+        <lightning-input-field
+          field-name={webringField}
           value={webringId}
           disabled="true"
           class="slds-hide"
@@ -18,6 +27,7 @@
             class="slds-m-top_small"
             type="submit"
             label="Add to webring"
+            disabled={disabled}
           ></lightning-button>
         </div>
       </lightning-record-edit-form>
