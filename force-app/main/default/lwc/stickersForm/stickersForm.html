@@ -1,42 +1,43 @@
 <template>
-  <lightning-card>
-    <h3 slot="title" class="title">
-      <lightning-icon icon-name="custom:custom1" size="small"></lightning-icon>
-      Stickers
-      <div class="slds-badge">{selectedStickers}/{maxStickers}</div>
-    </h3>
-    <div class="stickers-grid">
-      <div
-        class="sticker-cell"
-        for:each={stickers}
-        for:item="sticker"
-        key={sticker.id}
-      >
-        <template if:true={sticker.disabled}>
-          <input
-            id={sticker.id}
-            name="stickers[]"
-            type="checkbox"
-            value={sticker.id}
-            checked={sticker.selected}
-            onchange={onChangeSticker}
-            disabled
-          />
-        </template>
-        <template if:false={sticker.disabled}>
-          <input
-            id={sticker.id}
-            name="stickers[]"
-            type="checkbox"
-            value={sticker.id}
-            checked={sticker.selected}
-            onchange={onChangeSticker}
-          />
-        </template>
-        <label for={sticker.id}>
-          <img src={sticker.imgSrc} alt={sticker.imgAlt} />
-        </label>
+  <div class="container-outer">
+    <lightning-card>
+      <h3 slot="title" class="title">
+        <span>Stickers</span>
+        <div class="slds-badge">{selectedStickers}/{maxStickers}</div>
+      </h3>
+      <div class="stickers-grid">
+        <div
+          class="sticker-cell"
+          for:each={stickers}
+          for:item="sticker"
+          key={sticker.id}
+        >
+          <template if:true={sticker.disabled}>
+            <input
+              id={sticker.id}
+              name="stickers[]"
+              type="checkbox"
+              value={sticker.id}
+              checked={sticker.selected}
+              onchange={onChangeSticker}
+              disabled
+            />
+          </template>
+          <template if:false={sticker.disabled}>
+            <input
+              id={sticker.id}
+              name="stickers[]"
+              type="checkbox"
+              value={sticker.id}
+              checked={sticker.selected}
+              onchange={onChangeSticker}
+            />
+          </template>
+          <label for={sticker.id}>
+            <img src={sticker.imgSrc} alt={sticker.imgAlt} />
+          </label>
+        </div>
       </div>
-    </div>
-  </lightning-card>
+    </lightning-card>
+  </div>
 </template>

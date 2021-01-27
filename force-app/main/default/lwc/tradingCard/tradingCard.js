@@ -2,7 +2,7 @@ import { LightningElement, api, wire, track } from "lwc";
 import { getRecord, getFieldValue } from "lightning/uiRecordApi";
 import { subscribe, MessageContext } from "lightning/messageService";
 import getPicturePath from "@salesforce/apex/AttachmentController.getPicturePath";
-import getStickersByCard from "@salesforce/apex/HomeController.getStickersByCard";
+import getStickersByCard from "@salesforce/apex/StickerController.getStickersByCard";
 import PICTURE_UPDATED_CHANNEL from "@salesforce/messageChannel/Picture_Updated__c";
 import STICKER_UPDATED_CHANNEL from "@salesforce/messageChannel/Sticker_Updated__c";
 

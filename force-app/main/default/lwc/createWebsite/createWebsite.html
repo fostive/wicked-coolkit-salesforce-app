@@ -1,0 +1,36 @@
+<template>
+  <lightning-card title="Add Website">
+    <div class="container-inner">
+      <lightning-record-edit-form
+        object-api-name={websiteObject}
+        onsubmit={onSubmit}
+        onsuccess={handleSuccess}
+        onerror={onError}
+      >
+        <lightning-messages> </lightning-messages>
+        <lightning-input-field
+          field-name={urlField}
+          disabled={disabled}
+        ></lightning-input-field>
+        <lightning-input-field
+          field-name={nameField}
+          disabled={disabled}
+        ></lightning-input-field>
+        <lightning-input-field
+          field-name={webringField}
+          value={webringId}
+          disabled="true"
+          class="slds-hide"
+        ></lightning-input-field>
+        <div class="center">
+          <lightning-button
+            class="slds-m-top_small"
+            type="submit"
+            label="Add to webring"
+            disabled={disabled}
+          ></lightning-button>
+        </div>
+      </lightning-record-edit-form>
+    </div>
+  </lightning-card>
+</template>

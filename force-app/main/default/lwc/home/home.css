@@ -1,0 +1,13 @@
+.home-instructions {
+  padding-left: var(--lwc-varSpacingHorizontalMedium, 1rem);
+  padding-right: var(--lwc-varSpacingHorizontalMedium, 1rem);
+}
+
+.container-inner {
+  padding-left: var(--lwc-varSpacingVerticalSmall, 0.75rem);
+  padding-right: var(--lwc-varSpacingVerticalSmall, 0.75rem);
+}
+
+.container-outer {
+  margin-top: 2em;
+}

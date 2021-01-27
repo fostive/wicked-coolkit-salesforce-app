@@ -95,15 +95,12 @@ LIMIT 1
 ### Get all Websites for a Webring
 
 ```sql
-SELECT Id, Name, URL__c
+SELECT Id, Name, URL__c, Webring__c
 FROM Website__c
-WHERE Id IN
-  (SELECT Website__c
-   FROM Website_Webring_Association__c
-   WHERE Webring__c = 'a048A000002yeJDQAY')
+WHERE Webring__c = 'a03540000049jkVAAQ'
 ```
 
-`a048A000002yeJDQAY` is Webring ID returned by the previous query
+`a03540000049jkVAAQ` is Webring ID returned by the previous query
 
 ## TODO
 
