@@ -40,17 +40,17 @@ export default class WebringHome extends LightningElement {
   herokuAppNameResponse;
 
   get embedCode() {
-    if (this.herokuAppNameResponse.error) {
+    const herokuAppName = getFieldValue(
+      this.herokuAppNameResponse.data,
+      HEROKU_APP_NAME_FIELD
+    );
+
+    if (this.herokuAppNameResponse.error || !herokuAppName) {
       return (
         "Error generating embed code. Have you authenticated your" +
         " Heroku trading card app with this Salesforce app?"
       );
     }
-
-    const herokuAppName = getFieldValue(
-      this.herokuAppNameResponse.data,
-      HEROKU_APP_NAME_FIELD
-    );
 
     return `<script type="module" async src="https://unpkg.com/wicked-coolkit/dist/webring.js"></script>
 <wck-webring host="${herokuAppName}"></wck-webring>`;
