@@ -4,8 +4,8 @@
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
     <inlineHelpText
-  >Click here if you want to share your Trading Card and interests on their respective webrings</inlineHelpText>
-    <label>Share Card</label>
+  >This links your card to other cards with the same stickers so people can find you</inlineHelpText>
+    <label>Make my card discoverable</label>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>
 </CustomField>
