@@ -1,5 +1,5 @@
 <template>
-  <lightning-card title="Websites in your webring">
+  <lightning-card title={cardTitle}>
     <template if:false={emptyWebsiteList}>
       <lightning-datatable
         key-field="Id"
