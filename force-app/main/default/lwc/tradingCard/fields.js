@@ -10,6 +10,7 @@ import TWITTER_FIELD from "@salesforce/schema/Card__c.Twitter_Username__c";
 import LINKEDIN_FIELD from "@salesforce/schema/Card__c.LinkedIn_Username__c";
 import INSTAGRAM_FIELD from "@salesforce/schema/Card__c.Instagram_Username__c";
 import CODEPEN_FIELD from "@salesforce/schema/Card__c.CodePen_Username__c";
+import SHARE_CARD_FIELD from "@salesforce/schema/Card__c.Share_Card__c";
 
 export {
   NAME_FIELD,
@@ -22,5 +23,6 @@ export {
   TWITTER_FIELD,
   LINKEDIN_FIELD,
   INSTAGRAM_FIELD,
-  CODEPEN_FIELD
+  CODEPEN_FIELD,
+  SHARE_CARD_FIELD
 };

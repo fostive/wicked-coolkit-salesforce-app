@@ -1,4 +1,4 @@
 .container-inner {
-  padding-left: var(--lwc-varSpacingHorizontalMedium,1rem);
-  padding-right: var(--lwc-varSpacingHorizontalMedium,1rem);
+  padding-left: var(--lwc-varSpacingHorizontalMedium, 1rem);
+  padding-right: var(--lwc-varSpacingHorizontalMedium, 1rem);
 }

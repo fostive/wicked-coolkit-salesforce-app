@@ -27,6 +27,10 @@
                 <behavior>Readonly</behavior>
                 <field>Picture__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Share_Card__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

@@ -14,6 +14,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>StickerController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>WebringController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -75,6 +79,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Card__c.Picture__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Card__c.Share_Card__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -1,5 +1,5 @@
-export const api = (host) => {
-  return `$https://${host}/api`;
+export const api = (route) => {
+  return `https://wicked-coolkit-webring.herokuapp.com${route}`;
 };
 
 export const sticker = (s) => {

@@ -1,6 +1,11 @@
 import { LightningElement, wire, api } from "lwc";
 import getWebsitesByWebring from "@salesforce/apex/WebsiteController.getWebsitesByWebring";
-import { updateRecord, deleteRecord } from "lightning/uiRecordApi";
+import {
+  updateRecord,
+  deleteRecord,
+  getRecord,
+  getFieldValue
+} from "lightning/uiRecordApi";
 import { refreshApex } from "@salesforce/apex";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 import {
@@ -9,6 +14,7 @@ import {
   MessageContext
 } from "lightning/messageService";
 
+import WEBRING_NAME from "@salesforce/schema/Webring__c.Name";
 import WEBSITE_ID_FIELD from "@salesforce/schema/Website__c.Id";
 import WEBSITE_URL_FIELD from "@salesforce/schema/Website__c.URL__c";
 import WEBSITE_NAME_FIELD from "@salesforce/schema/Website__c.Name";
@@ -40,6 +46,16 @@ export default class WebringList extends LightningElement {
     } else if (data) {
       this.websiteList = data;
     }
+  }
+
+  @wire(getRecord, { recordId: "$webringId", fields: [WEBRING_NAME] })
+  webringNameResponse;
+
+  get cardTitle() {
+    return `Websites in your webring, ${getFieldValue(
+      this.webringNameResponse.data,
+      WEBRING_NAME
+    )}`;
   }
 
   get emptyWebsiteList() {
