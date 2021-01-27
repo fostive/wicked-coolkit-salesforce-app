@@ -1,6 +1,8 @@
 import { LightningElement, api, wire, track } from "lwc";
 import { getRecord, getFieldValue } from "lightning/uiRecordApi";
 import { subscribe, MessageContext } from "lightning/messageService";
+
+import getOrgId from "@salesforce/apex/HomeController.getOrgId";
 import getPicturePath from "@salesforce/apex/AttachmentController.getPicturePath";
 import getStickersByCard from "@salesforce/apex/StickerController.getStickersByCard";
 import PICTURE_UPDATED_CHANNEL from "@salesforce/messageChannel/Picture_Updated__c";
@@ -20,7 +22,8 @@ import {
   TWITTER_FIELD,
   LINKEDIN_FIELD,
   INSTAGRAM_FIELD,
-  CODEPEN_FIELD
+  CODEPEN_FIELD,
+  SHARE_CARD_FIELD
 } from "./fields";
 
 const FIELDS = [
@@ -34,24 +37,28 @@ const FIELDS = [
   TWITTER_FIELD,
   LINKEDIN_FIELD,
   INSTAGRAM_FIELD,
-  CODEPEN_FIELD
+  CODEPEN_FIELD,
+  SHARE_CARD_FIELD
 ];
 
 export const FORM_FIELDS = [
   NAME_FIELD,
-  GITHUB_FIELD,
+  EMAIL_FIELD,
   BIO_FIELD,
+  MAIN_WEBSITE_FIELD,
+  GITHUB_FIELD,
   TWITTER_FIELD,
   LINKEDIN_FIELD,
-  MAIN_WEBSITE_FIELD,
   INSTAGRAM_FIELD,
+  STRENGTHS_FIELD,
   CODEPEN_FIELD,
-  STRENGTHS_FIELD
+  SHARE_CARD_FIELD
 ];
 
 export { host };
 export default class TradingCard extends LightningElement {
   @api recordId;
+  orgId;
 
   @wire(MessageContext)
   messageContext;
@@ -67,6 +74,7 @@ export default class TradingCard extends LightningElement {
   twitter;
   instagram;
   codepen;
+  shareCard;
 
   @track
   stickers = [];
@@ -83,6 +91,7 @@ export default class TradingCard extends LightningElement {
       this.description = getFieldValue(data, BIO_FIELD);
       this.imgSrc = getFieldValue(data, PICTURE_PATH_FIELD);
       this.link = getFieldValue(data, MAIN_WEBSITE_FIELD);
+      this.shareCard = getFieldValue(data, SHARE_CARD_FIELD);
       this.setStrengths(getFieldValue(data, STRENGTHS_FIELD));
 
       // links
@@ -92,6 +101,10 @@ export default class TradingCard extends LightningElement {
       this.setLinkedIn(getFieldValue(data, LINKEDIN_FIELD));
       this.setInstagram(getFieldValue(data, INSTAGRAM_FIELD));
       this.setCodePen(getFieldValue(data, CODEPEN_FIELD));
+      getOrgId().then((orgId) => {
+        this.orgId = orgId;
+        this.updateStickers(this.recordId);
+      });
     } else {
       this.error = error;
     }
@@ -156,11 +169,6 @@ export default class TradingCard extends LightningElement {
     this.error = null;
     this.loading = false;
     this.subscribeToMessageChannel();
-    getStickersByCard({ cardId: this.recordId })
-      .then((data) => this.mapStickers(data))
-      .catch((error) => {
-        console.log(error);
-      });
   }
 
   subscribeToMessageChannel() {
@@ -184,11 +192,7 @@ export default class TradingCard extends LightningElement {
       STICKER_UPDATED_CHANNEL,
       (message) => {
         const { recordId } = message;
-        getStickersByCard({ cardId: recordId })
-          .then((data) => this.mapStickers(data))
-          .catch((error) => {
-            console.log(error);
-          });
+        this.updateStickers(recordId);
       }
     );
   }
@@ -199,5 +203,41 @@ export default class TradingCard extends LightningElement {
       imgSrc: host.sticker(sticker.Name),
       imgAlt: sticker.Image_Alt_Text__c
     }));
+  }
+
+  updateStickers(recordId) {
+    getStickersByCard({ cardId: recordId })
+      .then((data) => {
+        const orgId = this.orgId;
+        if (this.shareCard) {
+          const website = this.link;
+          const webrings = data.map((sticker) => sticker.Name).join(",");
+          this.callApi(host.api("/add"), { orgId, website, webrings })
+            .then((json) => console.log(json))
+            .catch((error) => console.log(error.message));
+        } else {
+          this.callApi(host.api("/delete"), { orgId })
+            .then((json) => console.log(json))
+            .catch((error) => console.log(error.message));
+        }
+        this.mapStickers(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  callApi(route, body) {
+    return fetch(route, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(body)
+    })
+      .then((response) => response.json())
+      .then((json) => json);
   }
 }
