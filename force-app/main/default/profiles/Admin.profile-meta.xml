@@ -117,11 +117,6 @@
     <layoutAssignments>
         <layout>Website__c-Website Layout</layout>
     </layoutAssignments>
-    <loginIpRanges>
-        <description>the whole internet</description>
-        <endAddress>255.255.255.255</endAddress>
-        <startAddress>0.0.0.0</startAddress>
-    </loginIpRanges>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
