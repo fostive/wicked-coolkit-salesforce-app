@@ -52,7 +52,7 @@ export default class WebringHome extends LightningElement {
       );
     }
 
-    return `<script type="module" async src="https://unpkg.com/wicked-coolkit/dist/webring.js"></script>
+    return `<script type="module" async src="https://unpkg.com/wicked-coolkit@^1.0.0/dist/webring.js"></script>
 <wck-webring host="${herokuAppName}"></wck-webring>`;
   }
 
