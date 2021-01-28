@@ -120,6 +120,19 @@ export default class TradingCard extends LightningElement {
   })
   herokuAppNameResponse;
 
+  get linkToTradingCard() {
+    const herokuAppName = getFieldValue(
+      this.herokuAppNameResponse.data,
+      HEROKU_APP_NAME_FIELD
+    );
+
+    if (this.herokuAppNameResponse.error || !herokuAppName) {
+      return "";
+    }
+
+    return `https://${herokuAppName}`;
+  }
+
   setStrengths(strenghts) {
     if (strenghts) {
       this.strengths = strenghts.split(",");

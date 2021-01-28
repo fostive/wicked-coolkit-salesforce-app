@@ -1,5 +1,8 @@
 <template>
   <div class="trading-card">
+    <template if:true={linkToTradingCard}>
+      <p>see <a href={linkToTradingCard}>live trading card</a></p>
+    </template>
     <div class="front">
       <section class="dev-intro">
         <h1 if:true={displayName} class="dev-name">{displayName}</h1>
