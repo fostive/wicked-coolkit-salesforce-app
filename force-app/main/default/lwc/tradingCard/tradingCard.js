@@ -2,6 +2,7 @@ import { LightningElement, api, wire, track } from "lwc";
 import { getRecord, getFieldValue } from "lightning/uiRecordApi";
 import { subscribe, MessageContext } from "lightning/messageService";
 
+import userId from "@salesforce/user/Id";
 import getOrgId from "@salesforce/apex/HomeController.getOrgId";
 import getPicturePath from "@salesforce/apex/AttachmentController.getPicturePath";
 import getStickersByCard from "@salesforce/apex/StickerController.getStickersByCard";
@@ -41,6 +42,8 @@ const FIELDS = [
   SHARE_CARD_FIELD
 ];
 
+const HEROKU_APP_NAME_FIELD = "User.HerokuAppName__c";
+
 export const FORM_FIELDS = [
   NAME_FIELD,
   EMAIL_FIELD,
@@ -56,6 +59,7 @@ export const FORM_FIELDS = [
 ];
 
 export { host };
+
 export default class TradingCard extends LightningElement {
   @api recordId;
   orgId;
@@ -109,6 +113,12 @@ export default class TradingCard extends LightningElement {
       this.error = error;
     }
   }
+
+  @wire(getRecord, {
+    recordId: userId,
+    fields: [HEROKU_APP_NAME_FIELD]
+  })
+  herokuAppNameResponse;
 
   setStrengths(strenghts) {
     if (strenghts) {
@@ -210,7 +220,14 @@ export default class TradingCard extends LightningElement {
       .then((data) => {
         const orgId = this.orgId;
         if (this.shareCard) {
-          const website = this.link;
+          const herokuAppName = getFieldValue(
+            this.herokuAppNameResponse.data,
+            HEROKU_APP_NAME_FIELD
+          );
+          if (this.herokuAppNameResponse.error || !herokuAppName) {
+            return;
+          }
+          const website = `https://${herokuAppName}`;
           const webrings = data.map((sticker) => sticker.Name).join(",");
           this.callApi(host.api("/add"), { orgId, website, webrings })
             .then((json) => console.log(json))

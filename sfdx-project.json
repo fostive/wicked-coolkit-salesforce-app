@@ -12,6 +12,7 @@
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "50.0",
   "packageAliases": {
-    "Wicked_CoolKit": "0Ho4x000000GmfnCAC"
+    "Wicked_CoolKit": "0Ho4x000000GmfnCAC",
+    "Wicked_CoolKit@0.1.0-2": "04t4x000000Qr7zAAC"
   }
 }

@@ -108,16 +108,16 @@ WHERE Webring__c = 'a03540000049jkVAAQ'
 - [ ] Determine user flow for deploying Heroku app + Salesforce app and then trading card setup experience.
 - [ ] Configure Salesforce UI for Weirdos-specific use cases e.g.
   - [x] filling out trading card contact info
-  - [ ] adding stickers to trading card
-  - [ ] creating a webring
-  - [ ] adding websites to a webring.
+  - [x] adding stickers to trading card
+  - [x] creating a webring
+  - [x] adding websites to a webring.
 - [x] Feats of Strength https://github.com/crcastle/weirdos-salesforce-app/issues/7
   - What is difference between Feats of Strength and Stickers
   - Possible to use dynamic multi picklist instead of text field?
 - [x] Figure out how to export sample data as a plan so that it can be imported
 - [x] Add ability to upload image to Contact (for trading card) https://github.com/crcastle/weirdos-salesforce-app/issues/5
-- [ ] Create the Salesforce Sticker Webring manager main application
-- [ ] Update Import Data Instructions
+- [x] Create the Salesforce Sticker Webring manager main application
+- [x] Update Import Data Instructions
 
 ## General Information About Salesforce DX Projects
 
