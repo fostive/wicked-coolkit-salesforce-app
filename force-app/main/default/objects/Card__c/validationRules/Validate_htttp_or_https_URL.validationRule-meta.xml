@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_htttp_or_https_URL</fullName>
+    <active>true</active>
+    <description
+  >Validates that a URL begins with either http:// or https://</description>
+    <errorConditionFormula
+  >NOT(OR(BEGINS(Main_Website__c, &quot;http://&quot;),BEGINS(Main_Website__c, &quot;https://&quot;)))</errorConditionFormula>
+    <errorDisplayField>Main_Website__c</errorDisplayField>
+    <errorMessage>Please start URL with http:// or https://</errorMessage>
+</ValidationRule>
