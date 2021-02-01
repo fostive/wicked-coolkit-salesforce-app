@@ -2,6 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Twitter_Username__c</fullName>
     <externalId>false</externalId>
+    <inlineHelpText>No need to include the @</inlineHelpText>
     <label>Twitter Username</label>
     <length>255</length>
     <required>false</required>
