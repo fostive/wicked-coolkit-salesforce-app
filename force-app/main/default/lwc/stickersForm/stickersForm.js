@@ -5,10 +5,13 @@ import addSticker from "@salesforce/apex/StickerController.addSticker";
 import deleteSticker from "@salesforce/apex/StickerController.deleteSticker";
 import getStickers from "@salesforce/apex/StickerController.getStickers";
 import getStickersByCard from "@salesforce/apex/StickerController.getStickersByCard";
+import importStickers from "@salesforce/apex/StickerController.importStickers";
 
 import { host } from "c/tradingCard";
 
 export default class StickersForm extends LightningElement {
+  importButtonDisabled;
+
   @api
   recordId;
 
@@ -26,6 +29,10 @@ export default class StickersForm extends LightningElement {
 
   get selectedStickers() {
     return this.getSelectedStickers().length;
+  }
+
+  get stickersAvailable() {
+    return this.stickers.length && this.stickers.length > 0;
   }
 
   loadStickers() {
@@ -121,5 +128,20 @@ export default class StickersForm extends LightningElement {
         s.disabled = false;
       });
     }
+  }
+
+  handleImportStickersClick() {
+    this.importButtonDisabled = true;
+
+    importStickers()
+      .then(() => {
+        this.connectedCallback();
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => {
+        this.importButtonDisabled = false;
+      });
   }
 }
