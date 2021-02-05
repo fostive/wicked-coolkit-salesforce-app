@@ -1,5 +1,5 @@
 public with sharing class StickerController {
-  @AuraEnabled(cacheable=true)
+  @AuraEnabled
   public static List<Sticker__c> getStickers() {
     return [
       SELECT Id, Name, Image__c, Image_Alt_Text__c
